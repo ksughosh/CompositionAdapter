@@ -33,17 +33,19 @@ class MyLinearLayoutRecyclerViewItem(context: Context?) : BaseLinearHolder<Model
     // manipulate view from data
   }
 }
+```
 
 or
 
+```kotlin
 class MyConstraintRecyclerViewItem(context: Context?): BaseConstraintHolder<ModelForViewTwo>(context) {
   override onDataReady(data: ModelForViewTwo){
     // manipulate view from data
   }
-}```
+}
+```
 
 There are multiple available `BaseHolder` classes that would facilitate the construction of the composition adapter.Individual `ViewDelegate`s are created with two parameters. First parameter is a `lambda` that returns a view and the second parameter is also a `lambda` that returns the condition to evaluate for the `viewType`. Finally, add the individual view delegates to the adapter to he list as shown:
-
 
 ```kotlin
 class ExampleActivity : AppCompatActivity() {
