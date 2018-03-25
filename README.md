@@ -88,7 +88,7 @@ class ExampleActivity : AppCompatActivity() {
 ```
 In total we have 4 different recyclerview items with individual view types and all of the view handling would be done through the data in their corresponding view classes.
 
-# Licence
+# Licenses
 Copyright [2018] [Sughosh Krishna Kumar]
 
    Licensed under the Apache License, Version 2.0 (the "License");
