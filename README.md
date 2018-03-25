@@ -15,7 +15,7 @@ dependencies {
   compile "com.github.ksughosh:PermissionsManager:${latest_version}"
 }
 ```
-The `latest_version` can be found under [releases]()
+The `latest_version` can be found under [releases](https://github.com/ksughosh/CompositionAdapter/releases)
 
 The view types are handled as individual views and views are encapsulated within a delegate class that implements all the recycler view methods.
 This would make each `View` encapsulated as a delegate with the recyclerview adapter. This is also a data driven approach so view modelling can be handled directly with data.
