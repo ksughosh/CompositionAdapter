@@ -67,9 +67,10 @@ class ExampleActivity : AppCompatActivity() {
         
         // get the items 
         val listOfItems : MutableList<ListItem> = getListItems()
-        recyclerListView?.adapter = DataAdapter(listOfItems).addDelegate(delegateOne, delegateTwo, delegateThree)
+        recyclerListView?.adapter = DataAdapter(listOfItems)
+          .addDelegate(delegateOne, delegateTwo, delegateThree, delegateFour)
+          
         recyclerListView?.layoutManager = LinearLayoutManager(this)
-        
     }
     
     private fun getListItems(): MutableList<ListItem> {
