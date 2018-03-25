@@ -1,5 +1,5 @@
 # CompositionAdapter
-A composition Recycler-View adapter kotlin implementation inspired from the post [a link ](http://hannesdorfmann.com/android/adapter-delegates)
+A composition Recycler-View adapter kotlin implementation inspired from the post [here](http://hannesdorfmann.com/android/adapter-delegates)
 
 The library reduces the boiler plate required to write a `recyclerview` adapter with multiple `viewTypes`.
 
