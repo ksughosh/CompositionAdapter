@@ -17,6 +17,7 @@ dependencies {
 ```
 The `latest_version` can be found under [releases](https://github.com/ksughosh/CompositionAdapter/releases)
 
+## Concept and working
 The view types are handled as individual views and views are encapsulated within a delegate class that implements all the recycler view methods.
 This would make each `View` encapsulated as a delegate with the recyclerview adapter. This is also a data driven approach so view modelling can be handled directly with data.
 
@@ -87,3 +88,17 @@ class ExampleActivity : AppCompatActivity() {
 ```
 In total we have 4 different recyclerview items with individual view types and all of the view handling would be done through the data in their corresponding view classes.
 
+# Licence
+Copyright [2018] [Sughosh Krishna Kumar]
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
