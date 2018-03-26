@@ -55,16 +55,21 @@ class ExampleActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         // p0: view, p1: condition for the view to be shown on recyclerview
-        // show MyLinearLayoutRecyclerViewItem item when the data in the list provided is of type ModelForViewOne
-        val delegateOne = ViewDelegate({ MyLinearLayoutRecyclerViewItem(it?.context) }, { it is ModelForViewOne }) 
+        // show MyLinearLayoutRecyclerViewItem item when the data 
+        // in the list provided is of type ModelForViewOne
+        val delegateOne = ViewDelegate({ MyLinearLayoutRecyclerViewItem(it?.context) }, 
+                                      { it is ModelForViewOne }) 
         
         // second delegate
-        val delegateTwo = ViewDelegate({ MyConstraintRecyclerViewItem(it?.context) }, { it is ModelForViewTwo }) 
+        val delegateTwo = ViewDelegate({ MyConstraintRecyclerViewItem(it?.context) }, 
+                                      { it is ModelForViewTwo }) 
         
         // delegate with condition 
-        val delegateThree = ViewDelegate( { NewRecyclerViewItem1(it?.context), { (it as? ModelForViewOne).isTriggered == false } )
+        val delegateThree = ViewDelegate( { NewRecyclerViewItem1(it?.context), 
+                                      { (it as? ModelForViewOne).isTriggered == false } )
         
-        val delegateFour = ViewDelegate( { NewRecyclerViewItem2(it?.context), { (it as? ModelForViewOne).isTriggered == true } )
+        val delegateFour = ViewDelegate( { NewRecyclerViewItem2(it?.context), 
+                                      { (it as? ModelForViewOne).isTriggered == true } )
         
         // get the items 
         val listOfItems : MutableList<ListItem> = getListItems()
