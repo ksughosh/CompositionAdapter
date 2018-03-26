@@ -1,5 +1,6 @@
 package com.github.ksughosh.adapter
 
+import android.support.annotation.CallSuper
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.ViewGroup
@@ -13,7 +14,7 @@ open class ViewDelegate<T: ListItem, out U: ListViewType<T>>(private val itemVie
     var viewType: Int = Int.MAX_VALUE - 1
     private var itemOnClick: ((U, Int) -> Unit)? = null
 
-    open fun onBindViewHolder(holder: RecyclerView.ViewHolder?, items: List<ListItem>?, position: Int, payload: MutableList<Any>? = null) {
+    @CallSuper open fun onBindViewHolder(holder: RecyclerView.ViewHolder?, items: List<ListItem>?, position: Int, payload: MutableList<Any>? = null) {
         val item = items?.get(position)
         val holderItem = holder?.itemView as? ListViewType<T> ?: return
         holderItem.model = item as T
@@ -31,7 +32,7 @@ open class ViewDelegate<T: ListItem, out U: ListViewType<T>>(private val itemVie
         itemOnClick = func
     }
 
-    open fun onCreateViewHolder(parent: ViewGroup?): RecyclerView.ViewHolder {
+    @CallSuper open fun onCreateViewHolder(parent: ViewGroup?): RecyclerView.ViewHolder {
         Log.d("BINDER", "CreateViewHolder")
         return BaseViewHolder(itemView(parent))
     }
