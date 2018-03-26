@@ -18,7 +18,7 @@ abstract class BaseLinearHolder<T: ListItem> (context: Context?): LinearLayout(c
         layoutParams =  RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
     }
 
-    override var mData: T? = null
+    override var model: T? = null
         set(value) {
             field = value
             if (value != null) {
@@ -28,7 +28,7 @@ abstract class BaseLinearHolder<T: ListItem> (context: Context?): LinearLayout(c
 }
 
 abstract class BaseFrameHolder<T: ListItem> (context: Context?): FrameLayout(context), ListViewType<T> {
-    override var mData: T? = null
+    override var model: T? = null
         set(value) {
             field = value
             if (value != null) {
@@ -38,7 +38,7 @@ abstract class BaseFrameHolder<T: ListItem> (context: Context?): FrameLayout(con
 }
 
 abstract class BaseRelativeHolder<T: ListItem> (context: Context?): RelativeLayout(context), ListViewType<T>{
-    override var mData: T? = null
+    override var model: T? = null
         set(value) {
             field = value
             if (value != null) {
@@ -53,7 +53,7 @@ abstract class BaseConstraintHolder<T: ListItem> (context: Context?) : Constrain
         layoutParams =  RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
     }
 
-    override var mData: T? = null
+    override var model: T? = null
         set(value) {
             field = value
             if (value != null) {

@@ -11,12 +11,27 @@ import android.view.ViewGroup
 open class ViewDelegate<T: ListItem, out U: ListViewType<T>>(private val itemView: (ViewGroup?) -> U,
                                                              private val forType: (Any?) -> Boolean) {
     var viewType: Int = Int.MAX_VALUE - 1
-    fun onBindViewHolder(holder: RecyclerView.ViewHolder?, items: List<ListItem>?, position: Int, payload: MutableList<Any>? = null) {
+    private var itemOnClick: ((U, Int) -> Unit)? = null
+
+    open fun onBindViewHolder(holder: RecyclerView.ViewHolder?, items: List<ListItem>?, position: Int, payload: MutableList<Any>? = null) {
         val item = items?.get(position)
-        (holder?.itemView as? ListViewType<T>)?.mData = item as T
+        val holderItem = holder?.itemView as? ListViewType<T> ?: return
+        holderItem.model = item as T
+        itemOnClick?.apply {  holderItem.setOnItemClick { this(it as U, position) } }
     }
 
-    fun onCreateViewHolder(parent: ViewGroup?): RecyclerView.ViewHolder {
+
+
+    /**
+     * @param func is the on item delegate click
+     * Note call on [onDestroy] on activity/fragment destruction
+     * this will remove the initialization references made in the lambda
+     */
+    open fun setOnDelegateClick(func : (U, Int) -> Unit) {
+        itemOnClick = func
+    }
+
+    open fun onCreateViewHolder(parent: ViewGroup?): RecyclerView.ViewHolder {
         Log.d("BINDER", "CreateViewHolder")
         return BaseViewHolder(itemView(parent))
     }
@@ -27,5 +42,10 @@ open class ViewDelegate<T: ListItem, out U: ListViewType<T>>(private val itemVie
 
     open fun onViewDetachedFromWindow(holder: RecyclerView.ViewHolder?) {}
 
-    fun onFailedToRecycleView(holder: RecyclerView.ViewHolder?): Boolean = false
+    open fun onFailedToRecycleView(holder: RecyclerView.ViewHolder?): Boolean = false
+
+    fun onDestroy() {
+        // clear references
+        itemOnClick = null
+    }
 }
