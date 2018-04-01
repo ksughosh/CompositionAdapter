@@ -31,8 +31,14 @@ data class ModelForViewTwo(showTextView: Boolean, hideButton: Boolean, titleText
 Every on of these data classes must have an adjoining view class to which it is bound:
 ```kotlin
 class MyLinearLayoutRecyclerViewItem(context: Context?) : BaseLinearHolder<ModelForViewOne>(context){
+  init{
+    // inflate layout id
+    setView(R.layout.element_item_my_linear_layout)
+  }
   override onDataReady(data: ModelForViewOne){
     // manipulate view from data
+    myTitleTextView?.text = data.titleText
+    myContentTextView?.text = data.contentText
   }
 }
 ```
@@ -41,8 +47,16 @@ or
 
 ```kotlin
 class MyConstraintRecyclerViewItem(context: Context?): BaseConstraintHolder<ModelForViewTwo>(context) {
+  init{
+    // inflate layout id
+    setView(R.layout.element_item_my_relative_layout)
+  }
+
   override onDataReady(data: ModelForViewTwo){
     // manipulate view from data
+    myTextView?.text = data.titleText
+
+    Glide.with(this).load(data.imageUrl).into(myImageView)  // load from Glide or Picasso
   }
 }
 ```
