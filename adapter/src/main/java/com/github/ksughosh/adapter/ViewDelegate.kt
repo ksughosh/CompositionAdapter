@@ -45,7 +45,7 @@ open class ViewDelegate<T: ListItem, out U: ListViewType<T>>(private val itemVie
 
     open fun onFailedToRecycleView(holder: RecyclerView.ViewHolder?): Boolean = false
 
-    fun onDestroy() {
+    open fun onDestroy() {
         // clear references
         itemOnClick = null
     }
