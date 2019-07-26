@@ -12,7 +12,7 @@ allProjects {
   }
 }
 dependencies {
-  compile "com.github.ksughosh:PermissionsManager:${latest_version}"
+  compile "com.github.ksughosh:CompositionAdapter:${latest_version}"
 }
 ```
 The `latest_version` can be found under [releases](https://github.com/ksughosh/CompositionAdapter/releases)
